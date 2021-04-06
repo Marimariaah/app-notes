@@ -1,0 +1,168 @@
+:root {
+    --cor-primaria: #070706;
+    --cor-secundaria: #5C4F45;
+    --cor-texto: #fff;
+    --nota1: #FE9A37;
+    --nota2: #CBDB57;
+    --nota3: #9585BA;
+    --nota4: #F96A4B;
+    --nota5: #DEA44D;
+    --nota6: #9E5C32;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+
+body {
+    width: 100vw;
+    background-color: var(--cor-primaria);
+    color: var(--cor-primaria);
+    padding: 1rem;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    color: var(--cor-texto);
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+button {
+    /* apresentação */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* dimensões */
+    height: 2.2rem;
+    width: 2.2rem;
+    /* comportamento */
+    border-radius: 8px;
+    color: var(--cor-texto);
+    background: #333;
+}
+
+input {
+    /* apresentação */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    /* dimensões */
+    width: 100%;
+    height: 2.2rem;
+    padding: 1rem;
+    /* comportamento */
+    border-radius: 8px;
+    border: none;
+    /* design */
+    color: var(--cor-secundaria);
+    background: #333;
+}
+
+div {
+    flex: 1 1 calc(50% - 1rem);
+    padding: 1rem;
+    margin: 0.5rem;
+    background: var(--nota3);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+}
+
+.nota {
+    word-break: break-all;
+    overflow: hidden;
+    height: 6.3rem;
+    line-height: 1.6rem;
+    width: 100%;
+}
+
+.btn-pesquisa-aberta {
+    background: #333 url(./x.svg) no-repeat center/60%;
+}
+
+.btn-pesquisa-fechada {
+    background: #333 url(./search.svg) no-repeat center/60%;
+}
+
+#add-button {
+    border-radius: 50%;
+    position: fixed;
+    right: 1.5rem;
+    bottom: 4rem;
+}
+
+#pesquisar-input {
+    align-self: flex-end;
+}
+
+#add-input {
+    width: 100%;
+    border-radius: 8px;
+    color: var(--cor-secundaria);
+    background: #333;
+    padding: 1rem;
+}
+
+.add-container {
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 1rem;
+    bottom: 1.2rem;
+    width: calc(100% - 2rem);
+}
+
+.add-container nav {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+}
+
+.add-container nav button {
+    flex: 1;
+    margin: 0 0.2rem;
+}
+
+.open {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: -0.5rem;
+    left: -0.5rem;
+    border-radius: 0;
+}
+
+.open .nota {
+    align-self: flex-start;
+}
+
+.d-block {
+    display: flex;
+}
+
+.d-none {
+    display: none;
+}
