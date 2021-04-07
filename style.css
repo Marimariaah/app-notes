@@ -82,7 +82,6 @@ input {
 
 div {
     flex: 1 1 calc(50% - 1rem);
-    padding: 1rem;
     margin: 0.5rem;
     background: var(--nota3);
     border-radius: 8px;
@@ -98,6 +97,8 @@ div {
     height: 6.3rem;
     line-height: 1.6rem;
     width: 100%;
+    height: 100%;
+    padding: 1rem;
 }
 
 .btn-pesquisa-aberta {
@@ -216,7 +217,6 @@ div {
 /* cores do container */
 
 .roxo {
-    border: 1px solid var(--cor-secundaria);
     background-color: var(--nota3);
 }
 
@@ -237,5 +237,29 @@ div {
 }
 
 .verde {
+    background-color: var(--nota2);
+}
+
+.btn-roxo {
+    background-color: var(--nota3);
+}
+
+.btn-laranja {
+    background-color: var(--nota1);
+}
+
+.btn-amarelo {
+    background-color: var(--nota5);
+}
+
+.btn-marrom {
+    background-color: var(--nota6);
+}
+
+.btn-vermelho {
+    background-color: var(--nota4);
+}
+
+.btn-verde {
     background-color: var(--nota2);
 }
