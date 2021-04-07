@@ -101,19 +101,19 @@ div {
 }
 
 .btn-pesquisa-aberta {
-    background: #333 url(./x.svg) no-repeat center/60%;
+    background: #333 url(./svg/x.svg) no-repeat center/60%;
 }
 
 .btn-pesquisa-fechada {
-    background: #333 url(./search.svg) no-repeat center/60%;
+    background: #333 url(./svg/search.svg) no-repeat center/60%;
 }
 
 .btn-remover {
-    background: transparent url(./trash-2.svg) no-repeat center/60%;
+    background: transparent url(./svg/trash-2.svg) no-repeat center/60%;
 }
 
 .btn-fechar {
-    background: transparent url(./x.svg) no-repeat center/60%;
+    background: transparent url(./svg/x.svg) no-repeat center/60%;
 }
 
 #add-button {
