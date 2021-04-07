@@ -39,8 +39,24 @@ btnRoxo.addEventListener('click', (evento) => {
     trocarCor('roxo');
 });
 
+btnLaranja.addEventListener('click', (evento) => {
+    trocarCor('laranja');
+});
+
 btnAmarelo.addEventListener('click', (evento) => {
     trocarCor('amarelo');
+});
+
+btnMarrom.addEventListener('click', (evento) => {
+    trocarCor('marrom');
+});
+
+btnVermelho.addEventListener('click', (evento) => {
+    trocarCor('vermelho');
+});
+
+btnVerde.addEventListener('click', (evento) => {
+    trocarCor('verde');
 });
 
 function exibirInput() {
