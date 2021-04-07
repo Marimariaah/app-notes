@@ -6,6 +6,12 @@ const addButton = document.querySelector('#add-button');
 const addContainer = document.querySelector('.add-container');
 const cancelar = document.querySelector('#add-cancel');
 const salvar = document.getElementById('add-save');
+const btnRoxo = document.querySelector('.roxo');
+const btnLaranja = document.querySelector('.laranja');
+const btnAmarelo = document.querySelector('.amarelo');
+const btnMarrom = document.querySelector('.marrom');
+const btnVermelho = document.querySelector('.vermelho');
+const btnVerde = document.querySelector('.verde');
 
 const nota = document.getElementsByTagName('div');
 
@@ -27,6 +33,14 @@ cancelar.addEventListener('click', (e) => {
 
 salvar.addEventListener('click', (e) => {
     salvarNota();
+});
+
+btnRoxo.addEventListener('click', (evento) => {
+    trocarCor('roxo');
+});
+
+btnAmarelo.addEventListener('click', (evento) => {
+    trocarCor('amarelo');
 });
 
 function exibirInput() {
@@ -82,6 +96,11 @@ const restaurarNotas = () => {
         notas.push(arrayItens[index]);
         criarElementNota(arrayItens[index]);
     }
+};
+
+const trocarCor = (classe) => {
+    const notaAberta = document.querySelector('.open');
+    notaAberta.className = `open d-block ${classe}`;
 };
 
 restaurarNotas();

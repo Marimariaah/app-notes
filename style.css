@@ -59,6 +59,8 @@ button {
     border-radius: 8px;
     color: var(--cor-texto);
     background: #333;
+    border: none;
+    cursor: pointer;
 }
 
 input {
@@ -104,6 +106,14 @@ div {
 
 .btn-pesquisa-fechada {
     background: #333 url(./search.svg) no-repeat center/60%;
+}
+
+.btn-remover {
+    background: transparent url(./trash-2.svg) no-repeat center/60%;
+}
+
+.btn-fechar {
+    background: transparent url(./x.svg) no-repeat center/60%;
 }
 
 #add-button {
@@ -157,6 +167,8 @@ div {
 
 .open .nota {
     align-self: flex-start;
+    justify-content: flex-start;
+    background-color: transparent;
 }
 
 .d-block {
@@ -165,4 +177,65 @@ div {
 
 .d-none {
     display: none;
+}
+
+.navation {
+    display: none;
+}
+
+.open .navation {
+    position: absolute;
+    top: 0;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+    background-color: var(--cor-primaria);
+    ;
+}
+
+.open .navation div {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: transparent;
+    height: 3rem;
+    width: calc(100% - 4.4rem);
+}
+
+.open .navation div button {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 0.1rem;
+    border-radius: 50%;
+    position: relative;
+}
+
+
+/* cores do container */
+
+.roxo {
+    border: 1px solid var(--cor-secundaria);
+    background-color: var(--nota3);
+}
+
+.laranja {
+    background-color: var(--nota1);
+}
+
+.amarelo {
+    background-color: var(--nota5);
+}
+
+.marrom {
+    background-color: var(--nota6);
+}
+
+.vermelho {
+    background-color: var(--nota4);
+}
+
+.verde {
+    background-color: var(--nota2);
 }
