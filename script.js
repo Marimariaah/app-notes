@@ -119,12 +119,13 @@ const restaurarNotas = () => {
     }
 };
 
-const expandirNota = () => {
-    console.log('expandir');
+const expandirNota = (evento) => {
+    evento.target.parentNode.classList.add('open');
+    addButton.classList.add('d-none');
 };
 
-const removerNota = () => {
-    console.log('remover');
+const removerNota = (evento) => {
+    console.log('remover', evento);
 };
 
 const ativarEventos = () => {
@@ -178,6 +179,7 @@ const ativarEventos = () => {
         btnFechar[index].addEventListener('click', (evento) => {
             const open = document.querySelector('.open');
             open.classList.remove('open');
+            addButton.classList.remove('d-none');
         });
     }
 
