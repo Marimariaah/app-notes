@@ -83,7 +83,6 @@ input {
 div {
     flex: 1 1 calc(50% - 1rem);
     margin: 0.5rem;
-    background: var(--nota3);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -128,9 +127,29 @@ div {
     align-self: flex-end;
 }
 
+label {
+    width: 100%;
+    color: var(--cor-texto);
+    font-size: 1rem;
+    text-indent: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: #333;
+}
+
+#cor {
+    width: 40%;
+    margin-left: 1.5rem;
+    border: none;
+    color: var(--cor-texto);
+    font-size: 1rem;
+    background: #333;
+}
+
 #add-input {
     width: 100%;
     border-radius: 8px;
+    border: none;
     color: var(--cor-secundaria);
     background: #333;
     padding: 1rem;
@@ -144,6 +163,8 @@ div {
     left: 1rem;
     bottom: 1.2rem;
     width: calc(100% - 2rem);
+    background-color: #313030;
+    padding-top: 1rem;
 }
 
 .add-container nav {

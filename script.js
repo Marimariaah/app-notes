@@ -1,3 +1,4 @@
+const temp = JSON.parse(localStorage.getItem('chaveNota'));
 const notas = [];
 
 const btnPesquisar = document.querySelector('#pesquisar-button');
@@ -23,7 +24,7 @@ salvar.addEventListener('click', (e) => {
     salvarNota();
 });
 
-const exibirInput = () => {
+function exibirInput() {
     const mostrar = inputPesquisar.classList.contains('d-block');
     if (mostrar) {
         inputPesquisar.classList.remove('d-block');
@@ -32,103 +33,97 @@ const exibirInput = () => {
         inputPesquisar.classList.add('d-block');
         btnPesquisar.classList.replace('btn-pesquisa-fechada', 'btn-pesquisa-aberta');
     }
-};
+}
 
-const exibirContainer = () => {
+function exibirContainer() {
     const estaOculto = addContainer.classList.contains('d-none');
     if (estaOculto) {
         addContainer.classList.remove('d-none');
     } else {
         addContainer.classList.add('d-none');
     }
-};
+}
 
-const salvarNota = () => {
-    const containerNota = document.querySelector('#add-input');
-    criarElementNota(containerNota.value);
-    salvarLocal(containerNota.value);
-};
+function salvarNota() {
+    const nota = document.querySelector('#add-input').value;
+    const cor = document.querySelector('#cor').value;
+    salvarLocal(nota, cor);
+}
 
-const criarNavation = (classe) => {
-    const nav = document.createElement('nav');
-    nav.classList.add(classe);
-    return nav;
-};
+function salvarLocal(nota, cor) {
+    notas.push({
+        nota,
+        cor,
+        data: new Date()
+    });
 
-const criarDiv = (classe) => {
-    const div = document.createElement('div');
-    if (classe) {
-        div.classList.add(classe);
-    }
-    return div;
-};
+    localStorage.setItem('chaveNota', JSON.stringify(notas));
 
-const criarBtn = (classe) => {
-    const btn = document.createElement('button');
-    btn.classList.add(classe);
-    return btn;
-};
-
-const criarNav = () => {
-    const btnRoxo = criarBtn('btn-roxo');
-    const btnLaranja = criarBtn('btn-laranja');
-    const btnAmarelo = criarBtn('btn-amarelo');
-    const btnMarrom = criarBtn('btn-marrom');
-    const btnVermelho = criarBtn('btn-vermelho');
-    const btnVerde = criarBtn('btn-verde');
-    const div = criarDiv();
-    div.appendChild(btnRoxo);
-    div.appendChild(btnLaranja);
-    div.appendChild(btnAmarelo);
-    div.appendChild(btnMarrom);
-    div.appendChild(btnVermelho);
-    div.appendChild(btnVerde);
-
-    const btnExcluir = criarBtn('btn-remover');
-    const btnFechar = criarBtn('btn-fechar');
-    const nav = criarNavation('navation');
-    nav.appendChild(div);
-    nav.appendChild(btnExcluir);
-    nav.appendChild(btnFechar);
-    return nav;
-};
-
-const criarElementNota = (nota) => {
-    const conteudo = criarDiv('nota');
-    const texto = document.createTextNode(nota);
-    conteudo.appendChild(texto);
-    const conteiner = criarDiv('d-block');
-    const main = document.querySelector('main');
-    conteiner.appendChild(criarNav());
-    conteiner.appendChild(conteudo);
-    main.appendChild(conteiner);
-};
-
-const salvarLocal = (nota) => {
-    notas.push(nota);
-    localStorage.setItem('notas', JSON.stringify(notas));
     location.reload();
-};
+}
 
-const restaurarNotas = () => {
-    const itens = localStorage.getItem('notas');
-    const arrayItens = JSON.parse(itens);
-    for (let index = 0; index < arrayItens.length; index++) {
-        notas.push(arrayItens[index]);
-        criarElementNota(arrayItens[index]);
-    }
-};
-
-const expandirNota = (evento) => {
+function expandirNota(evento) {
     evento.target.parentNode.classList.add('open');
     addButton.classList.add('d-none');
-};
+}
 
-const removerNota = (evento) => {
+function removerNota(evento) {
     console.log('remover', evento);
-};
+}
 
-const ativarEventos = () => {
+function trocarCor(classe) {
+    const notaAberta = document.querySelector('.open');
+    notaAberta.className = `open d-block ${classe}`;
+}
+
+function criarElementoHtml(tagHtml, classes, texto, elementoHtmlFilhos) {
+    const elementoHtml = document.createElement(tagHtml);
+
+    if (classes) {
+        elementoHtml.className = classes;
+    }
+
+    if (texto) {
+        elementoHtml.innerText = texto;
+    }
+    if (elementoHtmlFilhos) {
+        elementoHtml.append(...elementoHtmlFilhos);
+    }
+
+    return elementoHtml;
+}
+
+function criarNav() {
+    const btnRoxo = criarElementoHtml('button', 'btn-roxo');
+    const btnLaranja = criarElementoHtml('button', 'btn-laranja');
+    const btnAmarelo = criarElementoHtml('button', 'btn-amarelo');
+    const btnMarrom = criarElementoHtml('button', 'btn-marrom');
+    const btnVermelho = criarElementoHtml('button', 'btn-vermelho');
+    const btnVerde = criarElementoHtml('button', 'btn-verde');
+    const div = criarElementoHtml('div', false, false, [
+        btnRoxo,
+        btnLaranja,
+        btnAmarelo,
+        btnMarrom,
+        btnVermelho,
+        btnVerde
+    ]);
+
+    const btnExcluir = criarElementoHtml('button', 'btn-remover');
+    const btnFechar = criarElementoHtml('button', 'btn-fechar');
+    const nav = criarElementoHtml('nav', 'navation', false, [div, btnExcluir, btnFechar]);
+
+    return nav;
+}
+
+function criarElementNota(nota, cor) {
+    const divNota = criarElementoHtml('div', 'nota', nota);
+    const divConteinerNota = criarElementoHtml('div', `d-block ${cor}`, false, [criarNav(), divNota]);
+
+    document.querySelector('main').appendChild(divConteinerNota);
+}
+
+function ativarEventos() {
     const btnRoxo = document.querySelectorAll('.btn-roxo');
     const btnLaranja = document.querySelectorAll('.btn-laranja');
     const btnAmarelo = document.querySelectorAll('.btn-amarelo');
@@ -194,12 +189,17 @@ const ativarEventos = () => {
             expandirNota(evento);
         });
     }
-};
+}
 
-const trocarCor = (classe) => {
-    const notaAberta = document.querySelector('.open');
-    notaAberta.className = `open d-block ${classe}`;
-};
+function restaurarNotas() {
+    if (temp) {
+        for (let index = 0; index < temp.length; index++) {
+            notas.push(temp[index]);
+            const { nota, cor } = temp[index];
+            criarElementNota(nota, cor);
+        }
+    }
+}
 
 restaurarNotas();
 ativarEventos();
