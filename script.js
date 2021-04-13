@@ -117,7 +117,7 @@ function criarNav() {
 }
 
 function criarElementNota(nota, cor) {
-    const divNota = criarElementoHtml('div', 'nota', nota);
+    const divNota = criarElementoHtml('p', 'nota', nota);
     const divConteinerNota = criarElementoHtml('div', `d-block ${cor}`, false, [criarNav(), divNota]);
 
     document.querySelector('main').appendChild(divConteinerNota);
